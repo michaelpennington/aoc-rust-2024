@@ -19,7 +19,7 @@ fn parse_input(input: &str) -> (Vec<u32>, Vec<u32>) {
 fn generate_freqs(v: Vec<u32>) -> HashMap<u32, u32> {
     let mut out = HashMap::new();
     for n in v {
-        out.entry(n).and_modify(|e| *e += 1).or_insert(1);
+        *out.entry(n).or_insert(0) += 1;
     }
     out
 }
